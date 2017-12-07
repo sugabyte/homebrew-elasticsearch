@@ -22,6 +22,16 @@ brew remove sugabyte/homebrew-elasticsearch/elasticsearch@1.7
 ```
 
 ---
+### Use remotely
+
+If you are behind a router there is a fast and very simple way of tunneling your Elasticsearch service to a public address.
+There are other localhost tunneling options, but I find localtunnel works very well and it is open-source without restrictions: https://localtunnel.github.io/www/
+
+When you have Elasticsearch working locally on http://localhost:9200 you can simply run the command `lt --port 9200 --subdomain mycustomsubdomain'` to expose Elasticsearch on https://mycustomsubdomain.localtunnel.me.
+
+Once you have done that you can configure Elasticsearch on SugarCRM to connect to **mycustomsubdomain.localtunnel.me** *(NOTE: No protocol, no slashes)* on **port 80**.
+
+---
 ### Linux
 
 It is often very difficult to install old software that depend on old versions of Java or other widely used dependencies. Fortunately, Homebrew can also be used on Linux with Linuxbrew: http://linuxbrew.sh/  
